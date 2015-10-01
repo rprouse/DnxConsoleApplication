@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 #if DNX451
 using Microsoft.Framework.Runtime;
 #else
@@ -9,7 +10,7 @@ namespace DnxConsoleApp
 {
     public class Program
     {
-        public Program(ILibraryManager libraryManager)
+        public Program(ILibraryManager libraryManager, IServiceProvider serviceProvider)
         {
             foreach(var library in libraryManager.GetLibraries())
             {
@@ -20,6 +21,7 @@ namespace DnxConsoleApp
         public void Main(string[] args)
         {
             Console.WriteLine("Hello World");
+
             Console.WriteLine();
             Console.WriteLine("*** Press ENTER to Exit ***");
             Console.ReadLine();
